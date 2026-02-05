@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dfnal4y4hmlqm"]
+
+[ext_resource type="Script" uid="uid://b8wllc1kce450" path="res://pistacio.gd" id="1_8w8qs"]
+[ext_resource type="Texture2D" uid="uid://l3dpjiqa8gym" path="res://assets/Assets/pistachio idle.png" id="1_nje2g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8w8qs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7bvy"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(0, 0, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vc786"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(768, 0, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otvrg"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(1536, 0, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1vw0"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(2304, 0, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gutt"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(0, 448, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_041r5"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(768, 448, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_widwu"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(1536, 448, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxdph"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(2304, 448, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu84g"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(0, 896, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps2xn"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(768, 896, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2voe"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(1536, 896, 768, 448)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocxbm"]
+atlas = ExtResource("1_nje2g")
+region = Rect2(2304, 896, 768, 448)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e08tv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7bvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vc786")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otvrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1vw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gutt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_041r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_widwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxdph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu84g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps2xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2voe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocxbm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[node name="Pistacio" type="Node2D" unique_id=1563383083]
+script = ExtResource("1_8w8qs")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1270465610]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=227038099]
+shape = SubResource("CapsuleShape2D_8w8qs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=696792545]
+position = Vector2(1, 1.0000019)
+scale = Vector2(0.1842448, 0.1891741)
+sprite_frames = SubResource("SpriteFrames_e08tv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.06499837
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
